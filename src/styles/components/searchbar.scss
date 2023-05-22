@@ -1,0 +1,39 @@
+@use '../colors/colors' as *;
+
+.navbar {
+  align-items: center;
+  background-color: $primary-color; /* TODO set global variable */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100vw;
+}
+
+.navbar-logo img{
+  height: 34px;
+}
+
+.navbar-search {
+  background-color: #FFFFFF; /* TODO set global variable */
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0,0.2);
+}
+
+.navbar-search-input {
+  border: none;
+  font-size: 18px;
+  margin: 8px;
+  width: 100%;
+}
+
+.navbar-search-button {
+  background: $light-gray;
+  width: 46px;
+}
+.navbar-search-button img {
+  font-size: 16px;
+  vertical-align: top;
+  width: 20px;
+}
