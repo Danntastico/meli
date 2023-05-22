@@ -1,4 +1,5 @@
 @use '../constants/colors' as *;
+@use '../mixins/alignment';
 
 .navbar {
   align-items: center;
@@ -10,9 +11,6 @@
   width: 100vw;
 }
 
-.navbar-logo img{
-  height: 34px;
-}
 
 .navbar-search {
   background-color: #FFFFFF; /* TODO set global variable */
@@ -31,9 +29,6 @@
 .navbar-search-button {
   background: $light-gray;
   width: 46px;
-}
-.navbar-search-button img {
-  font-size: 16px;
-  vertical-align: top;
-  width: 20px;
+  @include alignment.flex-center;
+  justify-content: center;
 }

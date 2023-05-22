@@ -1,3 +1,4 @@
+import { Icon } from "./Icon"
 import "/src/styles/components/searchbar.scss"
 
 const SearchBar = () => {
@@ -7,12 +8,12 @@ const SearchBar = () => {
   return (
     <header className="navbar">
       <a className="navbar-logo" href="/">
-        <img src="src/assets/logo_meli.png" alt="main logo"/> {/*TODO*/}
+        <Icon name="logo_meli" width="50px" alt="main logo"/>
       </a>
       <form className="navbar-search" onSubmit={handleSubmit}>
         <input className='navbar-search-input' value='' placeholder="Nunca dejes de buscar"/>
         <button className="navbar-search-button" type="submit">
-          <img src='src/assets/search.png' alt="search" /> {/*TODO*/}
+          <Icon name="search" width="20px"/>
         </button>
       </form>
     </header>
