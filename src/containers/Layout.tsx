@@ -1,13 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import SearchBar from '../components/SearchBar'
 
-interface LayoutProps {
-  children: React.ReactNode
-}
-
-export const Layout:React.FC<LayoutProps> = ({ children }) => {
+export const Layout:React.FC = () => {
   return (
-    <main>
-      {children}
-    </main>
+    <>
+      <SearchBar/>
+      <main>
+        <Outlet/>
+      </main>
+    </>
   )
 }
