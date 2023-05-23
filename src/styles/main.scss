@@ -16,6 +16,7 @@ body {
 
 main {
   @include alignment.layout-dimensions;
+  margin-bottom: 100px;
 }
 
 button, input[type="submit"] {

@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import SearchBar from './components/SearchBar'
+import { Layout } from './containers/Layout'
+import { SearchResults } from './pages/SearchResults'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
+      <SearchBar/>
+      <Layout>
+        <SearchResults/>
+      </Layout>
     </>
   )
 }

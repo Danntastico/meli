@@ -3,11 +3,12 @@
 $product-margin: 16px;
 
 .product-card {
+  background-color: $white;
+  border-bottom: 1px solid $light-gray;
   display: flex;
   justify-content: flex-start;
-  margin: $product-margin;
-  border-bottom: 1px solid $light-gray;
-  background-color: $white;
+  margin: 0 $product-margin;
+  padding: $product-margin 0;
 }
 
 .product-image {
