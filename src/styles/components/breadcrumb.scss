@@ -5,7 +5,8 @@
 .breadcrumb-list{
   list-style: none;
   display: flex;
-
+  margin-top: 14px;
+  text-align: center;
   .breadcrumb-item {
     @include alignment.flex-center;
 

@@ -6,16 +6,18 @@ const SearchBar = () => {
     console.log('Hello!')
   }
   return (
-    <header className="navbar">
-      <a className="navbar-logo" href="/">
-        <Icon name="logo_meli" width="50px" alt="main logo"/>
-      </a>
-      <form className="navbar-search" onSubmit={handleSubmit}>
-        <input className='navbar-search-input' value='' placeholder="Nunca dejes de buscar"/>
-        <button className="navbar-search-button" type="submit">
-          <Icon name="search" width="20px"/>
-        </button>
-      </form>
+    <header className="topbar">
+      <div className="topbar-content">
+        <a className="topbar-logo" href="/">
+          <Icon name="logo_meli" width="50px" alt="main logo"/>
+        </a>
+        <form className="topbar-search" onSubmit={handleSubmit}>
+          <input className='topbar-search-input' value='' placeholder="Nunca dejes de buscar"/>
+          <button className="topbar-search-button" type="submit">
+            <Icon name="search" width="20px"/>
+          </button>
+        </form>
+      </div>
     </header>
   )
 }
