@@ -1,0 +1,11 @@
+@use '../constants/colors' as *;
+@use '../constants/fontsizes';
+
+.main-button {
+  background-color: $secondary-color;
+  color: $white;
+  font-size: fontsizes.$button;
+  &:hover {
+    background-color: $secondary-color-hover;
+  }
+}
