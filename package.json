@@ -3,26 +3,17 @@
   "version": "1.0.0",
   "description": "Mercado libre Test Práctico",
   "main": "index.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "concurrently": "^8.0.1",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint": "^8.41.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
-    "express": "^4.18.2",
-    "eslint-plugin-import": "^2.27.5",
-    "localforage": "^1.10.0",
-    "match-sorter": "^6.3.1",
-    "nodemon": "^2.0.22",
-    "prettier": "^2.8.8",
-    "sass": "^1.62.1",
-    "sort-by": "^1.2.0",
-    "vite-plugin-eslint": "^1.8.1"
+    "nodemon": "^2.0.22"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && npm install",
+    "server-install": "cd server && npm install",
+    "install-all": "concurrently \"npm run server-install\" \"npm run client-install\"",
+    "dev-start": "cd client && npm run dev"
   },
   "repository": {
     "type": "git",
@@ -33,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/Danntastico/meli/issues"
   },
-  "homepage": "https://github.com/Danntastico/meli#readme"
+  "homepage": "https://github.com/Danntastico/meli#readme",
+  "workspaces": {
+    "packages": [
+      "client/",
+      "server/"
+    ]
+  }
 }
