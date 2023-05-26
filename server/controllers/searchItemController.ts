@@ -23,7 +23,8 @@ export const searchItemController = async (req: Request, res: Response) => {
         },
         picture: result.thumbnail,
         condition: result.condition,
-        free_shipping: result.shipping.free_shipping
+        free_shipping: result.shipping.free_shipping,
+        location: result.seller_address.country.name,
       }))
     })
   } catch (error) {

@@ -4,19 +4,20 @@ interface Author {
 }
 
 interface Item {
-  id: string;
-  title: string;
-  price: Price;
-  picture: string;
   condition: string;
-  free_shipping: boolean;
-  sold_quantity: number;
   description: string
+  free_shipping: boolean;
+  id: string;
+  picture: string;
+  price: Price;
+  sold_quantity: number;
+  title: string;
+  location: string
 }
 
 interface Price {
-  currency: string;
   amount: number;
+  currency: string;
   decimals: number;
 }
 
@@ -28,5 +29,5 @@ export interface GetItemBySearchQueryResponse {
 
 export interface GetItemByIDResponse {
   author: Author,
-  item: Item
+  item: Omit<Item, 'location'>;
 }
