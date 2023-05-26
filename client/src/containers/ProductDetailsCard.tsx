@@ -1,27 +1,30 @@
 import React from "react"
 import { Button } from "../components/Button";
+import Currency from 'react-currency-formatter';
 import '/src/styles/containers/product-details-card.scss';
 
 interface ProductDetailsCardProps {
+  currency:string;
+  description: string;
   imageUrl: string;
   name: string;
-  productStatus: "nuevo" | "usado";
-  price: string | number;
-  description: string;
-  soldAmount: number;
+  price: number;
+  productStatus: string;
+  soldQuantity: number;
 }
 
 export const ProductDetailsCard: React.FC<ProductDetailsCardProps> = (
   {
+    currency,
     description,
     imageUrl, 
     name,
     price, 
     productStatus,
-    soldAmount,
+    soldQuantity,
   }
 ) => {
-  const soldAmountLabel = soldAmount > 9 ? 'vendidos' : 'vendido'
+  const soldQuantityLabel = soldQuantity > 9 ? 'vendidos' : 'vendido'
 
   return (
     <div className="details-container">
@@ -29,13 +32,15 @@ export const ProductDetailsCard: React.FC<ProductDetailsCardProps> = (
         <img src={imageUrl} alt="Modelo del producto" />
         <div className="details-description">
           <h3>Descripción del producto</h3>
-          <p>The scrape di Blanco Italian footwear collection was found by Bill White in 2009, DI blanco Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur voluptas natus, assumenda adipisci molestiae dolores eveniet nam, quidem fuga tempore repudiandae eius blanditiis laborum culpa consequuntur nisi qui vel deserunt!</p>
+          <p>{description}</p>
         </div>
       </section>
       <section className="details-action">
-        <span>{productStatus} - {soldAmount} {soldAmountLabel}</span>
+        <span>{productStatus} - {soldQuantity} {soldQuantityLabel}</span>
         <h1>{name}</h1>
-        <h2>{price}</h2>
+        <h2>
+          <Currency quantity={price} currency={currency}/>
+        </h2>
         <Button label="Comprar producto">Comprar</Button>
       </section>
     </div>

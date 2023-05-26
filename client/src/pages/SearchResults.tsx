@@ -1,8 +1,16 @@
-import { SearchResultItem } from '../components/SearchResultItem'
+import { SearchResultItem } from '../containers/SearchResultItem'
 import { Breadcrumb } from '../components/Breadcrumb'
 import '/src/styles/pages/search-results.scss'
+import { useSearchParams } from 'react-router-dom'
+import { useFetch } from '../hooks/useFetch'
+import { getItemsBySearchQuery } from '../api'
+import { GetItemBySearchQueryResponse } from '../types/api'
+import { FetchFn } from '../types/helpers'
 
 export const SearchResults = () => {
+  const [ params ] = useSearchParams()
+  const query = params.get('query')
+  const { data, loading } = useFetch<GetItemBySearchQueryResponse>(getItemsBySearchQuery as FetchFn, query)
   return (
     <>
       <Breadcrumb>
@@ -13,34 +21,18 @@ export const SearchResults = () => {
         <Breadcrumb.Item isActive> 32GB </Breadcrumb.Item>
       </Breadcrumb>
       <div className='search-results-container'>
-        <SearchResultItem 
-          imageUrl='https://http2.mlstatic.com/D_NQ_NP_881317-MLA45730875178_042021-V.webp'
-          isShipped
-          location='Bogotá'
-          price='$1980'
-          name='Apple ipod TOuch 5g 16gb Negro Igual A Nuevo Completo Unico!'
-        />
-        <SearchResultItem 
-          imageUrl='https://http2.mlstatic.com/D_NQ_NP_881317-MLA45730875178_042021-V.webp'
-          isShipped
-          location='Bogotá'
-          price='$1980'
-          name='Apple ipod TOuch 5g 16gb Negro Igual A Nuevo Completo Unico!'
-        />
-        <SearchResultItem 
-          imageUrl='https://http2.mlstatic.com/D_NQ_NP_881317-MLA45730875178_042021-V.webp'
-          isShipped
-          location='Bogotá'
-          price='$1980'
-          name='Apple ipod TOuch 5g 16gb Negro Igual A Nuevo Completo Unico!'
-        />
-        <SearchResultItem
-          imageUrl='https://http2.mlstatic.com/D_NQ_NP_881317-MLA45730875178_042021-V.webp'
-          isShipped
-          location='Bogotá'
-          price='$1980'
-          name='Apple ipod TOuch 5g 16gb Negro Igual A Nuevo Completo Unico!'
-        />
+        {data && data.items.slice(0, 10).map(item => (
+          <SearchResultItem
+            imageUrl={item.picture}
+            isShipped={item.free_shipping}
+            location={item.location}
+            name={item.title}
+            price={item.price.amount}
+            currency={item.price.currency}
+            id={item.id}
+            key={item.id}
+          />
+        ))}
       </div>
     </>
   )

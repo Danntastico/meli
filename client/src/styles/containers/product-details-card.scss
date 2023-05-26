@@ -12,8 +12,8 @@ $square-image-dimensions: 680px;
 
 .details-main {
   > img {
-    height: $square-image-dimensions;
-    width: $square-image-dimensions;
+    max-height: $square-image-dimensions;
+    max-width: $square-image-dimensions;
     object-fit: cover;
     border-radius: 4px;
   }
@@ -27,7 +27,7 @@ $square-image-dimensions: 680px;
   }
   > p {
     color: $secondary-gray;
-    width: 680px;
+    max-width: 680px;
   }
 }
 

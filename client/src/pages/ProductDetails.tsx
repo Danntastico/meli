@@ -1,8 +1,16 @@
 import React from 'react'
 import { ProductDetailsCard } from '../containers/ProductDetailsCard'
 import { Breadcrumb } from '../components/Breadcrumb'
+import { useParams } from 'react-router-dom'
+import { getItemByID } from '../api'
+import { useFetch } from '../hooks/useFetch'
+import { FetchFn } from '../types/helpers'
+import { GetItemByIDResponse } from '../types/api'
 
-export const ProductDetails = () => {
+export const ProductDetails: React.FC = () => {
+  const { id } = useParams()
+  const { data , loading } = useFetch<GetItemByIDResponse>(getItemByID as FetchFn, id)
+  
   return (
     <>
       <Breadcrumb>
@@ -12,14 +20,16 @@ export const ProductDetails = () => {
         <Breadcrumb.Item> iPod touch </Breadcrumb.Item>
         <Breadcrumb.Item isActive> 32GB </Breadcrumb.Item>
       </Breadcrumb>
-      <ProductDetailsCard
-        description='Lorem'
-        imageUrl='https://cdn.vox-cdn.com/thumbor/mFiywP9BUHDC8AIRBDYJvXdfQiA=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23265504/Spider_Man_meme.jpg'
-        name='Deco Reverse Sombrero Oxford'
-        price={'$1990'}
-        productStatus='nuevo'
-        soldAmount={234}
-      />
+      { data && (
+        <ProductDetailsCard
+          description={data.item.description}
+          imageUrl={data.item.picture}
+          name={data.item.title}
+          price={data.item.price.amount}
+          productStatus={data.item.condition}
+          soldQuantity={data.item.sold_quantity}
+        />
+      )}
     </>
   )
 }
