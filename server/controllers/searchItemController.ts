@@ -1,11 +1,13 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
+import { URL_MELI } from '../constants/urls'
 
-export const searchItemController = async (_req: Request, res: Response) => {
+export const searchItemController = async (req: Request, res: Response) => {
   try {
-    const meliResponse = await axios.get('https://api.mercadolibre.com/sites/MLA/search?q=:iphone')
+    const query = req.query.q
+    const meliResponse = await axios.get(`${URL_MELI}/sites/MLA/search?q=${query}`)
 
-    const response = {
+    res.status(200).json({
       author: {
         "name": "Danilo",
         "lastName": "Peña"
@@ -23,10 +25,6 @@ export const searchItemController = async (_req: Request, res: Response) => {
         condition: result.condition,
         free_shipping: result.shipping.free_shipping
       }))
-    }
-    res.status(200).json({
-      message: 'Succeed',
-      data: response
     })
   } catch (error) {
     console.error(error)
