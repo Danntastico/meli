@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import SearchBar from '../components/SearchBar'
+import SearchBar from './SearchBar'
 
 export const Layout:React.FC = () => {
   return (

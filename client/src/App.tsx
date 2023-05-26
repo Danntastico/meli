@@ -1,5 +1,5 @@
 import { Layout } from './containers/Layout'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Routes } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { ProductDetails } from './pages/ProductDetails'
 import { SearchResults } from './pages/SearchResults'
 import Home from './pages/Home';
@@ -8,8 +8,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="results" element={<SearchResults />} />
-      <Route path="item" element={<ProductDetails />} />
+      <Route path="items" element={<SearchResults />}/>
+      <Route path="items/:id" element={<ProductDetails />} />
     </Route>
   )
 )
