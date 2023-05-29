@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/main.js",
-    "dev": "npx tsc --watch && nodemon -q dist/main.js",
+    "dev": "npx tsc && nodemon -q dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Danilo P",
