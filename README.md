@@ -2,9 +2,9 @@
 
 ### Instalación 
 
-Después de clonar la aplicación localmente
+Después de clonar la aplicación localmente. (NOTA: sólo ejecutar `npm install` en el directorio raíz probablemente no va a instalar las dependencias de `client` y `server`)
 ```bash
-  cd meli && npm install
+  cd meli && npm run install-all
 ```
 Este proyecto usa [concurrently](https://www.npmjs.com/package/concurrently), el cual permite ejecutar comandos al mismo tiempo. 
 Para ejecutar el cliente y el servidor al tiempo, ejecute desde el root:
