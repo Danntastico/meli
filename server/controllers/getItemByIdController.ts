@@ -9,7 +9,7 @@ export const getItemByIdController = async (req: Request, res: Response) => {
     const meliItem = await (await axios.get(`${URL_MELI}/items/${id}`)).data
     const itemDescription = await (await axios.get(`${URL_MELI}/items/${id}/description`)).data
     const categoryRes = await axios.get(`${URL_MELI}/categories/${meliItem.category_id}`)
-    console.log(categoryRes.data)
+
     res.status(200).json({
       author: {
         name: 'Danilo',
