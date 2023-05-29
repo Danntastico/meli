@@ -1,10 +1,17 @@
-import React from "react"
-import '/src/styles/components/breadcrumb.scss'
+import React from "react";
 import MaterialSymbol from "./MaterialSymbol";
+import '/src/styles/components/breadcrumb.scss';
 
 interface BreadcrumbsProps {
   children: React.ReactNode;
 }
+
+
+interface BreadcrumbItemProps {
+  children: React.ReactElement | string;
+  isActive?: boolean
+}
+
 
 type BreadCrumbType = typeof BreadcrumbRaw & {
   Item: typeof BreadcrumbItem
@@ -18,11 +25,6 @@ const BreadcrumbRaw: React.FC<BreadcrumbsProps> = ({children}) => {
       </ol>
     </nav>
   )
-}
-
-interface BreadcrumbItemProps {
-  children: React.ReactElement | string;
-  isActive?: boolean
 }
 
 const BreadcrumbItem = (props: BreadcrumbItemProps) => {

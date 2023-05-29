@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FetchFn, State } from "../types/helpers";
+import { FetchFn, State } from "src/types/helpers";
 
 export const useFetch = <T>(fetchFunction: FetchFn, ...params: unknown[]): State<T> => {
 

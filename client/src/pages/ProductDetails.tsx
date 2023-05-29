@@ -1,12 +1,12 @@
 import React from 'react'
-import { ProductDetailsCard } from '../containers/ProductDetailsCard'
-import { Breadcrumb } from '../components/Breadcrumb'
 import { useParams } from 'react-router-dom'
-import { getItemByID } from '../api'
-import { useFetch } from '../hooks/useFetch'
-import { FetchFn } from '../types/helpers'
-import { GetItemByIDResponse } from '../types/api'
 import { PacmanLoader } from 'react-spinners'
+import { getItemByID } from 'src/api'
+import { Breadcrumb } from 'src/components/Breadcrumb'
+import { ProductDetailsCard } from 'src/containers/ProductDetailsCard'
+import { useFetch } from 'src/hooks/useFetch'
+import { GetItemByIDResponse } from 'src/types/api'
+import { FetchFn } from 'src/types/helpers'
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams()

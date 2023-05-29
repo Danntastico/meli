@@ -1,7 +1,7 @@
-import React from "react"
-import { Button } from "../components/Button";
-import '/src/styles/containers/product-details-card.scss';
+import React from "react";
 import { currencyFormatter } from "src/functions";
+import { Button } from "src/components/Button";
+import '/src/styles/containers/product-details-card.scss';
 
 interface ProductDetailsCardProps {
   currency:string;

@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, ImgHTMLAttributes } from "react"
+import React, { DetailedHTMLProps, ImgHTMLAttributes } from "react";
 
 const ICONS = ['logo_meli', 'search', 'shipping'] as const;
 
@@ -10,7 +10,7 @@ interface IconProps extends Omit<HTMLImageTagType, 'src'> {
 export const Icon: React.FC<IconProps>  = (props) => {
   const { name, alt, width = '50px', ...rest} = props
   return (
-    <img 
+    <img
       src={`./src/assets/${name}.png`} 
       alt={ alt ?? name}
       width={width}

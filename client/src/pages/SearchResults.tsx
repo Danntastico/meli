@@ -1,12 +1,12 @@
-import { SearchResultItem } from '../containers/SearchResultItem'
-import { Breadcrumb } from '../components/Breadcrumb'
-import '/src/styles/pages/search-results.scss'
 import { useSearchParams } from 'react-router-dom'
-import { useFetch } from '../hooks/useFetch'
-import { getItemsBySearchQuery } from '../api'
-import { GetItemsBySearchQueryResponse } from '../types/api'
-import { FetchFn } from '../types/helpers'
-import PacmanLoader from "react-spinners/PacmanLoader";
+import PacmanLoader from "react-spinners/PacmanLoader"
+import { getItemsBySearchQuery } from 'src/api'
+import { Breadcrumb } from 'src/components/Breadcrumb'
+import { SearchResultItem } from 'src/containers/SearchResultItem'
+import { useFetch } from 'src/hooks/useFetch'
+import { GetItemsBySearchQueryResponse } from 'src/types/api'
+import { FetchFn } from 'src/types/helpers'
+import '/src/styles/pages/search-results.scss'
 
 export const SearchResults = () => {
   const [ params ] = useSearchParams()

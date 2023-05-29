@@ -1,9 +1,9 @@
 
-import React from 'react'
-import { Icon } from 'src/components/Icon';
-import "/src/styles/components/search-result-item.scss"
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Icon } from 'src/components/Icon';
 import { currencyFormatter } from 'src/functions';
+import "/src/styles/components/search-result-item.scss";
 
 interface SearchResultItemProps {
   currency:string;

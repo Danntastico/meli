@@ -1,8 +1,8 @@
-import { Layout } from './containers/Layout'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import { ProductDetails } from './pages/ProductDetails'
-import { SearchResults } from './pages/SearchResults'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { Layout } from './containers/Layout';
 import Home from './pages/Home';
+import { ProductDetails } from './pages/ProductDetails';
+import { SearchResults } from './pages/SearchResults';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

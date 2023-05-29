@@ -1,7 +1,7 @@
-import express from 'express'
-import routes from '../router/'
 import cors from 'cors'
+import express from 'express'
 import portfinder from 'portfinder'
+import routes from '../router/'
 
 const PORT = 3000
 portfinder.basePort = PORT

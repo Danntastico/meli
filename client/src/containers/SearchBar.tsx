@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react"
-import { Icon } from "../components/Icon"
-import "/src/styles/components/searchbar.scss"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import MaterialSymbol from "src/components/MaterialSymbol"
+import { Icon } from "src/components/Icon"
+import "/src/styles/components/searchbar.scss"
 
 const SearchBar = () => {
   const navigate = useNavigate()

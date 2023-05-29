@@ -1,5 +1,5 @@
-import { Request, Response } from 'express'
 import axios from 'axios'
+import { Request, Response } from 'express'
 import { URL_MELI } from '../constants/urls'
 
 const getCategoryName = async (categoryIds: string | string[]) => {
