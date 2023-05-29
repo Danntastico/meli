@@ -1,5 +1,30 @@
 # Aplicación Mercado-Libre
 
+### Instalación 
+
+Después de clonar la aplicación localmente
+```bash
+  cd meli && npm install
+```
+Este proyecto usa [concurrently](https://www.npmjs.com/package/concurrently), el cual permite ejecutar comandos al mismo tiempo. 
+Para ejecutar el cliente y el servidor al tiempo, ejecute desde el root:
+```
+  npm run start
+```
+
+En caso tal de querer correr una instancia local el cliente o del servidor individualmente:
+
+_Servidor_
+```
+  npm run server-start
+```
+
+_Cliente_ (el cliente no mostrará data a menos que exista una instancia local del servidor, en el puerto 3000 por defecto) 
+```
+  npm run client-start
+```  
+
+
 ### Especificaciones generales:
 
 Estructura del proyecto 
@@ -17,7 +42,7 @@ Estructura del proyecto
   README.md
 ```
 
-Front End
+#### Front End
 La estructura básica del proyecto está generada usando [vite](https://vitejs.dev/), React y Typescript.
 En general las librerías principales implementadas son: 
  - React
@@ -25,3 +50,13 @@ En general las librerías principales implementadas son:
  - React currency formatter 
  - axios
  - Sass
+
+#### Back End
+La estructura para el backend utiliza principalmente [express JS](https://expressjs.com/) y Typescript. 
+Librerías implementadas: 
+  - axios
+  - cors
+  - express
+  - nodemon
+  - portfinder
+  - concurrently
