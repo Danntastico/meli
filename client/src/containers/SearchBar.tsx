@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { Icon } from "../components/Icon"
 import "/src/styles/components/searchbar.scss"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
@@ -18,6 +18,10 @@ const SearchBar = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value)
   }
+
+  useEffect(() => {
+    setQuery(querySearchParam || '')
+  }, [querySearchParam])
 
   return (
     <header className="topbar">

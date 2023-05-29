@@ -24,7 +24,7 @@ interface BreadcrumbItemProps {
   isActive?: boolean
 }
 
-const BreadcrumbItem = (props:BreadcrumbItemProps) => {
+const BreadcrumbItem = (props: BreadcrumbItemProps) => {
   const {children, isActive} = props
   return (
     <li className="breadcrumb-item" aria-current={isActive && 'page'}>

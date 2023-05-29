@@ -26,8 +26,8 @@ export const SearchResults = () => {
       {!loading && (
         <Breadcrumb>
           {
-            breadcrumbs?.slice(0, 3).reverse().map((b, ix) => (
-              <Breadcrumb.Item key={b} isActive={ix === 2}>
+            breadcrumbs?.slice(0, 3).reverse().map((b, ix, arr) => (
+              <Breadcrumb.Item key={b} isActive={ix === arr.length - 1}>
                 {b}
               </Breadcrumb.Item>
             ))
