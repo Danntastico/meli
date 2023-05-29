@@ -1,8 +1,11 @@
 import express from 'express'
 import routes from '../router/'
 import cors from 'cors'
+import portfinder from 'portfinder'
 
 const PORT = 3000
+portfinder.basePort = PORT
+portfinder.highestPort = 4000
 
 export const createServer = () => {
   const app = express()
@@ -10,8 +13,11 @@ export const createServer = () => {
   app.use('/', routes)
 
   return {
-    start: () => app.listen(PORT, () => {
-      console.log(`Server app listening on port ${PORT}`)
+    start: () => portfinder.getPort((err, port) => {
+      if (err) throw err;
+      app.listen(port, () => {
+        console.log(`Server app listening on port ${port}`)
+      })
     })
   }
 }
