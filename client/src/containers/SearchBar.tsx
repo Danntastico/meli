@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { Icon } from "../components/Icon"
 import "/src/styles/components/searchbar.scss"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
+import MaterialSymbol from "src/components/MaterialSymbol"
 
 const SearchBar = () => {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ const SearchBar = () => {
             placeholder="Nunca dejes de buscar"
           />
           <button className="topbar-search-button" type="submit">
-            <Icon name="search" width="20px"/>
+            <MaterialSymbol icon="search"/>
           </button>
         </form>
       </div>

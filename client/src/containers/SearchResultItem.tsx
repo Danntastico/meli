@@ -2,8 +2,8 @@
 import React from 'react'
 import { Icon } from 'src/components/Icon';
 import "/src/styles/components/search-result-item.scss"
-import Currency from 'react-currency-formatter';
 import { Link, useNavigate } from 'react-router-dom';
+import { currencyFormatter } from 'src/functions';
 
 interface SearchResultItemProps {
   currency:string;
@@ -38,7 +38,7 @@ export const SearchResultItem: React.FC<SearchResultItemProps> = (props) => {
     <div className="product-description">
         <Link to={`/items/${id}`} title={name}>
           <div className='product-price'>
-            <h3><Currency quantity={price} currency={currency}/></h3>
+            <h3>{currencyFormatter(price, currency)}</h3>
             { isShipped && <Icon name='shipping' width='20px' />}
           </div>
         </Link>

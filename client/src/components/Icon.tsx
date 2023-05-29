@@ -11,7 +11,7 @@ export const Icon: React.FC<IconProps>  = (props) => {
   const { name, alt, width = '50px', ...rest} = props
   return (
     <img 
-      src={`src/assets/${name}.png`} 
+      src={`./src/assets/${name}.png`} 
       alt={ alt ?? name}
       width={width}
       {...rest}

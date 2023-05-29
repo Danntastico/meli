@@ -1,5 +1,6 @@
 import React from "react"
 import '/src/styles/components/breadcrumb.scss'
+import MaterialSymbol from "./MaterialSymbol";
 
 interface BreadcrumbsProps {
   children: React.ReactNode;
@@ -30,9 +31,7 @@ const BreadcrumbItem = (props: BreadcrumbItemProps) => {
     <li className="breadcrumb-item" aria-current={isActive && 'page'}>
       { children }
       {!isActive && (
-        <span className="material-symbols-outlined">
-          chevron_right
-        </span>
+        <MaterialSymbol icon="chevron_right"/>
       )}
     </li>
   )

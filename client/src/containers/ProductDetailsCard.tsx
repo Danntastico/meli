@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "../components/Button";
-import Currency from 'react-currency-formatter';
 import '/src/styles/containers/product-details-card.scss';
+import { currencyFormatter } from "src/functions";
 
 interface ProductDetailsCardProps {
   currency:string;
@@ -24,7 +24,7 @@ export const ProductDetailsCard: React.FC<ProductDetailsCardProps> = (
     soldQuantity,
   }
 ) => {
-  const soldQuantityLabel = soldQuantity > 9 ? 'vendidos' : 'vendido'
+  const soldQuantityLabel = soldQuantity > 1 ? 'vendidos' : 'vendido'
 
   return (
     <div className="details-container">
@@ -39,7 +39,7 @@ export const ProductDetailsCard: React.FC<ProductDetailsCardProps> = (
         <span>{productStatus} - {soldQuantity} {soldQuantityLabel}</span>
         <h1>{name}</h1>
         <h2>
-          <Currency quantity={price} currency={currency}/>
+          {currencyFormatter(price, currency)}
         </h2>
         <Button label="Comprar producto">Comprar</Button>
       </section>
