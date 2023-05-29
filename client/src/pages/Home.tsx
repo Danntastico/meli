@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom'
-
+import 'src/styles/pages/home.scss'
 const Home = () => {
   return (
-    <div style={{margin: 'auto', width: '100%'}}>
+    <div className='home-container'>
       Home
-      <Link to='/results'>Results</Link>
-      <Link to='/item'>Item</Link>
     </div>
   )
 }

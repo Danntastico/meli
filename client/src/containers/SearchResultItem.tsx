@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon } from 'src/components/Icon';
 import "/src/styles/components/search-result-item.scss"
 import Currency from 'react-currency-formatter';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface SearchResultItemProps {
   currency:string;
@@ -17,25 +17,31 @@ interface SearchResultItemProps {
 
 export const SearchResultItem: React.FC<SearchResultItemProps> = (props) => {
   const {
-  currency,
-  id,
-  imageUrl,
-  isShipped,
-  location,
-  name,
-  price
-} = props
+    currency,
+    id,
+    imageUrl,
+    isShipped,
+    location,
+    name,
+    price
+  } = props
+  const navigate = useNavigate()
+  const handleClickNavigate = () => {
+    navigate(`/items/${id}`)
+  }
 
   return (
     <div className='product-card'>
-      <Link to={`/items/${id}`}>
+      <div onClick={handleClickNavigate} className='product-cart-image-wrapper'>
         <img src={imageUrl} alt={`Product ${name}`} className="product-image" />
-      </Link>
+      </div>
     <div className="product-description">
-        <div className='product-price'>
-          <h3><Currency quantity={price} currency={currency}/></h3>
-          { isShipped && <Icon name='shipping' width='20px' />}
-        </div>
+        <Link to={`/items/${id}`} title={name}>
+          <div className='product-price'>
+            <h3><Currency quantity={price} currency={currency}/></h3>
+            { isShipped && <Icon name='shipping' width='20px' />}
+          </div>
+        </Link>
         <p>{name}</p>
       </div>
       <div style={{minWidth: '200px'}}>

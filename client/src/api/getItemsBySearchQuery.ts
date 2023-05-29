@@ -1,7 +1,7 @@
 import { API_URL } from "../models/constants/common"
-import { GetItemBySearchQueryResponse } from "../types/api"
+import { GetItemsBySearchQueryResponse } from "../types/api"
 
-const getItemsBySearchQuery = async (query: string): Promise<GetItemBySearchQueryResponse> => {
+const getItemsBySearchQuery = async (query: string): Promise<GetItemsBySearchQueryResponse> => {
   try {
     const response = await fetch(`${API_URL}/api/items?q=${query}`)
     const data = await response.json()

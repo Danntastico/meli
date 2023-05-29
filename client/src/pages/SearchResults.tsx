@@ -4,22 +4,36 @@ import '/src/styles/pages/search-results.scss'
 import { useSearchParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { getItemsBySearchQuery } from '../api'
-import { GetItemBySearchQueryResponse } from '../types/api'
+import { GetItemsBySearchQueryResponse } from '../types/api'
 import { FetchFn } from '../types/helpers'
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 export const SearchResults = () => {
   const [ params ] = useSearchParams()
   const query = params.get('query')
-  const { data, loading } = useFetch<GetItemBySearchQueryResponse>(getItemsBySearchQuery as FetchFn, query)
+  const { data, loading } = useFetch<GetItemsBySearchQueryResponse>(getItemsBySearchQuery as FetchFn, query)
+  
+  const breadcrumbs = data?.avaible_category_filter ?? data?.categories
+
+  if(loading) {
+    return  <>
+      <PacmanLoader color='#FFE600' style={{top: '50%', left: '50%', position: 'absolute'}}/>
+    </>
+  }
+  
   return (
-    <>
-      <Breadcrumb>
-        <Breadcrumb.Item> Electrónica, Audio y Video </Breadcrumb.Item>
-        <Breadcrumb.Item> iPod </Breadcrumb.Item>
-        <Breadcrumb.Item> Reproductores </Breadcrumb.Item>
-        <Breadcrumb.Item> iPod touch </Breadcrumb.Item>
-        <Breadcrumb.Item isActive> 32GB </Breadcrumb.Item>
-      </Breadcrumb>
+    <>      
+      {!loading && (
+        <Breadcrumb>
+          {
+            breadcrumbs?.slice(0, 3).reverse().map((b, ix) => (
+              <Breadcrumb.Item key={b} isActive={ix === 2}>
+                {b}
+              </Breadcrumb.Item>
+            ))
+          }
+        </Breadcrumb>
+      )}
       <div className='search-results-container'>
         {data && data.items.slice(0, 10).map(item => (
           <SearchResultItem

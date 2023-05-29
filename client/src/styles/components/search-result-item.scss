@@ -11,6 +11,10 @@ $product-margin: 16px;
   padding: $product-margin 0;
 }
 
+.product-cart-image-wrapper {
+  cursor: pointer;
+}
+
 .product-image {
   width: 180px;
   height: 180px;
